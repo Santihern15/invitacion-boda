@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta property="og:title" content="Invitación: Florencia & Santiago">
-  <meta property="og:description" content="¡Nos casamos! Confirmá tu asistencia aquí para el 30/01/2026.">
+  <meta property="og:description" content="¡Nos casamos! Confirmá tu asistencia para el 30/01/2026.">
   <meta property="og:image" content="https://i.imgur.com/ATIVHmj.jpeg">
   <meta property="og:url" content="https://santihern15.github.io/invitacion-boda/">
   <meta property="og:type" content="website">
@@ -103,7 +103,7 @@
 
     .boton { display: inline-block; padding: 12px 25px; background-color: var(--verde-oscuro-texto); color: white; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
 
-    /* === NUEVA SECCIÓN: FALTAN + CALENDARIO (ESTILO FOTO) === */
+    /* === SECCIÓN FALTAN + CALENDARIO (CORREGIDA) === */
     .section-countdown-calendar {
       background-color: var(--verde-oscuro-texto);
       color: white;
@@ -129,16 +129,25 @@
       font-size: 0.85rem;
     }
     .calendar-header { font-weight: bold; opacity: 0.6; padding-bottom: 15px; text-transform: uppercase; font-size: 0.7rem; }
-    .calendar-day { padding: 10px 0; position: relative; }
-    .calendar-day.event { 
-        border: 1px solid rgba(255,255,255,0.4);
+    
+    /* CORRECCIÓN DE ALINEACIÓN EN EL CALENDARIO */
+    .calendar-day {
+      height: 45px; /* Altura fija para todas las celdas */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Estilo para el círculo del día */
+    .highlight-day {
+        border: 1px solid rgba(255,255,255,0.5);
         border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        margin: 0 auto;
+        width: 35px;
+        height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 2px; /* Un pequeño ajuste óptico */
     }
 
     /* Foto Final */
@@ -266,9 +275,7 @@
             <div class="calendar-header">Sab</div>
             <div class="calendar-header">Dom</div>
             
-            <div class="calendar-day"></div>
-            <div class="calendar-day"></div>
-            <div class="calendar-day"></div>
+            <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
             
             <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div>
             <div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div>
@@ -279,7 +286,7 @@
             <div class="calendar-day">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
             <div class="calendar-day">29</div>
             
-            <div class="calendar-day"><div class="calendar-day event">30</div></div>
+            <div class="calendar-day"><span class="highlight-day">30</span></div>
             
             <div class="calendar-day">31</div>
         </div>
@@ -317,6 +324,9 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
